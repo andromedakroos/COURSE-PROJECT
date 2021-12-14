@@ -1,5 +1,50 @@
 #include "bar.h"
-void Menu::Bar::add_Pos(int x)
+
+void Menu::Bar::add_vis()
+{
+	object_vis.push_back(Visitor());
+	object_vis[object_vis.size() - 1].input();
+	object_vis[object_vis.size() - 1].setId(object_vis.size());
+}
+void Menu::Bar::output_vis()
+{
+	for (int i = 0; i < object_vis.size(); i++)
+	{
+		object_vis[i].output();
+	}
+
+}
+void Menu::Bar::delete_vis(int index)
+{
+	for (int i = 0; i < object_meal.size(); i++)
+	{
+		if (object_meal[i].getId() == index)
+		{
+			object_meal.erase(object_meal.begin() + i);
+		}
+		else
+			cout << "Incorrect number! Please re-enter" << endl;
+		return;
+	}
+}
+void Menu::Bar::sort_vis(vector<Visitor>&)
+{
+	Visitor temp_vis;
+	for (int i = 0; i < object_vis.size() - 1; i++)
+	{
+		for (int j = 0; j < object_vis.size() - i - 1; j++)
+		{
+			if (object_vis[j].getTable() > object_vis[j + 1].getTable())
+			{
+				temp_vis = object_vis[j];
+				object_vis[j] = object_vis[j + 1];
+				object_vis[j + 1] = temp_vis;
+			}
+		}
+	}
+
+}
+void Menu::Bar::add_pos(int x)
 {
 	if (x == 1)
 	{
@@ -15,7 +60,7 @@ void Menu::Bar::add_Pos(int x)
 	}
 }
 
-void Menu::Bar::output_Pos(int x)
+void Menu::Bar::output_pos(int x)
 {
 	system("CLS");
 	if (x == 1)
@@ -48,7 +93,7 @@ void Menu::Bar::output_Pos(int x)
 
 }
 
-void Menu::Bar::delete_Pos(int index, int choise)
+void Menu::Bar::delete_pos(int index, int choise)
 {
 	if (choise == 1)
 	{

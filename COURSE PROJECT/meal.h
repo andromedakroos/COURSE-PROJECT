@@ -1,6 +1,9 @@
 #pragma once
-#include "Header.h"
+#include <iostream>
+#include <string>
 #include "menu.h"
+using namespace std;
+
 
 namespace Menu
 {

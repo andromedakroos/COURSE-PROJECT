@@ -1,13 +1,25 @@
 ﻿#include "bar.h"
 #include "Header.h"
+#include "file.h"
+#include "admin.h"
 
-void  main()
+
+int  main()
 {
 	int x, id;
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+	Admin adm;
 	Menu::Bar bar;
-	do
+	File<Menu::Bar> file;
+
+	do 
+	{
+		
+		
+
+	} while (x < 6);
+	/*do
 	{
 
 		cout << "Если хотите добавить позицию - 1" << endl;
@@ -25,7 +37,7 @@ void  main()
 			cout << "Если хотите добавить блюдо - 2" << endl;
 			cin >> x;
 			cin.ignore();
-			bar.add_Pos(x);
+			bar.add_pos(x);
 			break;
 		case 2:
 			system("CLS");
@@ -33,7 +45,7 @@ void  main()
 			cout << "Если хотите посмотреть блюда - 2" << endl;
 			cout << "Если хотите посмотреть всё меню - 3" << endl;
 			cin >> x;
-			bar.output_Pos(x);
+			bar.output_pos(x);
 			break;
 		case 3:
 			system("CLS");
@@ -42,7 +54,7 @@ void  main()
 			cin >> x;
 			cout << "Введите индекс позиции, которую хотите удалить" << endl;
 			cin >> id;
-			bar.delete_Pos(id, x);
+			bar.delete_pos(id, x);
 			break;
 		case 4:
 			system("CLS");
@@ -66,7 +78,7 @@ void  main()
 			return;
 		}
 
-	} while (x != 6);
+	} while (x != 6);*/
 
-	return;
+	return 0;
 };

@@ -1,14 +1,29 @@
 #include "visitor.h"
 
-void Visitor::setName(string name)
+void Visitor::setHour(int hour)
 {
-	this->name = name;
+	this->hour = hour;
 }
 
-void Visitor::setTime(string time)
+void Visitor::setMinute(int minute)
 {
-	this->time = time;
+	this->minute = minute;
 }
+
+void Visitor::setId(int id)
+{
+	this->id = id;
+}
+
+//void Visitor::setName(string name)
+//{
+//	this->name = name;
+//}
+
+//void Visitor::setTime(string time)
+//{
+//	this->time = time;
+//}
 
 void Visitor::setTable(int table)
 {
@@ -30,14 +45,29 @@ int Visitor::getTable()
 	return table;
 }
 
-string Visitor::getTime()
+int Visitor::getHour()
 {
-	return time;
+	return hour;
 }
 
-string Visitor::getName()
+int Visitor::getMinute()
 {
-	return name;
+	return minute;
+}
+
+//string Visitor::getTime()
+//{
+//	return time;
+//}
+
+//string Visitor::getName()
+//{
+//	return name;
+//}
+
+int Visitor::getId()
+{
+	return id;
 }
 
 int checking(int x)
@@ -46,7 +76,7 @@ int checking(int x)
 		bool success = true;
 		while (success)
 		{
-			if (cin.peek() != '\n' || x <= 0)
+			if (cin.peek() != '\n' || x < 0)
 			{
 				cin.clear();
 				cin.ignore(3333333, '\n');
@@ -63,16 +93,16 @@ int checking(int x)
 
 string phoneCheck(string phone)
 {
-	int l = phone.length();
+	/*int l = phone.length();*/
 	bool success = true;
 	while (success)
 	{
-		
-		if (cin.peek() != '\n' || l < 9)
+		int l = phone.length();
+		if (/*cin.peek() != '\n' ||*/ l < 10)
 		{
 			cin.clear();
 			cin.ignore(3333333, '\n');
-			cout << "Number is too short! Please re-enter!" << endl;
+			cout << "Number is too short! It's should contain more 10 numbers. Please re-enter!" << endl;
 			getline(cin, phone, '\n');
 		}
 		else
@@ -87,7 +117,7 @@ int tableCheck(int table)
 	while (success)
 	{
 
-		if (table > 9|| table < 0 )
+		if (table > 8 || table < 0 )
 		{
 			cin.clear();
 			cin.ignore(3333333, '\n');
@@ -97,8 +127,8 @@ int tableCheck(int table)
 		else
 			success = false;
 	}
+	return table;
 	
-
 }
 
 void Visitor::input()
@@ -108,26 +138,44 @@ void Visitor::input()
 	cout << "Enter your name: " << endl;
 	getline(cin, tmp, '\n');
 	setName(tmp);
-	cout << "Enter reservation time: " << endl;
-	getline(cin, tmp, '\n');
-	setTime(tmp);
+	cout << "Enter hour of reservation time: " << endl;
+	cin >> a;
+	a = checking(a);
+	setHour(a);
+	cout << "Enter minutes of reservation time: " << endl;
+	cin >> a;
+	a = checking(a);
+	setMinute(a);
 	cout << "Enter number of table which you want to reservate: " << endl;
 	cin >> a;
 	a = checking(a);
+	a = tableCheck(a);
 	setTable(a);
+	cin.ignore();
 	cout << "Enter your phone number: " << endl;
 	getline(cin, tmp, '\n');
-	phoneCheck(tmp);
+	tmp=phoneCheck(tmp);
 	setPhone(tmp);
 	cin.ignore();
 }
+
+//void Visitor::output()
+//{
+//	cout << "Name of visitor: " <<
+//		getName() << "\nComing time: " <<
+//		getTime() << "\nNumber number of table which have been reserved:" <<
+//		getTable() << "\nPhone number: " <<
+//		getPhone() << "\n" << endl;
+//}
 
 void Visitor::output()
 {
 	cout << "Name of visitor: " <<
 		getName() << "\nComing time: " <<
-		getTime() << "\nNumber number of table which have been reserved:" <<
+		getHour() <<":"<<
+		getMinute()<<"\nNumber number of table which have been reserved: " <<
 		getTable() << "\nPhone number: " <<
 		getPhone() << "\n" << endl;
 }
+
 

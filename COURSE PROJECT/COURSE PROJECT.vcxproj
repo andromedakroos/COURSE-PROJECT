@@ -139,19 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="admin.cpp" />
     <ClCompile Include="alcohol.cpp" />
     <ClCompile Include="bar.cpp" />
     <ClCompile Include="COURSE PROJECT.cpp" />
     <ClCompile Include="meal.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="person.cpp" />
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="visitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="admin.h" />
     <ClInclude Include="alcohol.h" />
     <ClInclude Include="bar.h" />
+    <ClInclude Include="file.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="meal.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="person.h" />
     <ClInclude Include="visitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
