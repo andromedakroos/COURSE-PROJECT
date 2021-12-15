@@ -9,6 +9,8 @@ namespace Menu
 {
 	class Alcohol : public Menu
 	{
+		friend ostream& operator << (ostream& out, const Alcohol& pos);
+		friend istream& operator >> (istream& in, Alcohol& pos);
 	private:
 		int strength;
 	public:

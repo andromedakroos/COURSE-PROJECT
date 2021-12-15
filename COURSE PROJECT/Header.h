@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void permance();
+void perfomance(Menu::Bar&);
 int chooseEnter();
 void adminCheck(Admin);
 int chooseFile();

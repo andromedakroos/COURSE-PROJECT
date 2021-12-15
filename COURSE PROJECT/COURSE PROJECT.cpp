@@ -11,14 +11,8 @@ int  main()
 	SetConsoleOutputCP(1251);
 	Admin adm;
 	Menu::Bar bar;
-	File<Menu::Bar> file;
-
-	do 
-	{
-		
-		
-
-	} while (x < 6);
+	/*File<Menu::Bar> file;*/
+	perfomance(bar);
 	/*do
 	{
 

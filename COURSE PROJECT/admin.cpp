@@ -32,6 +32,7 @@ string Admin::getPass()
 
 void Admin::input()
 {
+	cin.ignore();
 	string tmp;
 	/*int a;*/
 	cout << "Enter your name: " << endl;

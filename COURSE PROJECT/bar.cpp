@@ -1,5 +1,21 @@
 #include "bar.h"
 
+Menu::Bar::Bar()
+{
+	File<Alcohol> fAlco("drinks.txt");
+	File<Meal> fMeal("meals.txt");
+	File<Visitor> fVisitor("visitors.txt");
+	Alcohol temp;
+	while (1)
+	{
+
+		fAlco >> temp;
+		if (fAlco.eof())
+			break;
+		object_alco.push_back(temp);
+	}
+}
+
 void Menu::Bar::add_vis()
 {
 	object_vis.push_back(Visitor());
@@ -27,7 +43,7 @@ void Menu::Bar::delete_vis(int index)
 		return;
 	}
 }
-void Menu::Bar::sort_vis(vector<Visitor>&)
+void Menu::Bar::sort_vis_up(vector<Visitor>&)
 {
 	Visitor temp_vis;
 	for (int i = 0; i < object_vis.size() - 1; i++)
@@ -44,6 +60,51 @@ void Menu::Bar::sort_vis(vector<Visitor>&)
 	}
 
 }
+void Menu::Bar::sort_vis_down(vector<Visitor>&)
+{
+	Visitor temp_vis;
+	for (int i = 0; i < object_vis.size() - 1; i++)
+	{
+		for (int j = 0; j < object_vis.size() - i - 1; j++)
+		{
+			if (object_vis[j].getTable() < object_vis[j + 1].getTable())
+			{
+				temp_vis = object_vis[j];
+				object_vis[j] = object_vis[j + 1];
+				object_vis[j + 1] = temp_vis;
+			}
+		}
+	}
+}
+void Menu::Bar::sort_vis(int choisesort)
+{
+	if (choisesort == 1)
+	{
+
+		sort_vis_up(object_vis);
+	}
+	else if (choisesort == 2)
+	{
+
+		sort_vis_down(object_vis);
+	}
+	else if (choisesort == 0)
+		return;
+}
+void Menu::Bar::change_vis(int index)
+{
+
+	for (int i = 0; i < object_vis.size(); i++)
+	{
+		if (object_vis[i].getId() == index)
+		{
+			object_vis[i].input();
+			break;
+		}
+		else
+			cout << "Object with number dosen't found! Please re-enter" << endl;
+	}
+}
 void Menu::Bar::add_pos(int x)
 {
 	if (x == 1)
@@ -58,6 +119,8 @@ void Menu::Bar::add_pos(int x)
 		object_meal[object_meal.size() - 1].input();
 		object_meal[object_meal.size() - 1].setId(object_meal.size());
 	}
+	if (x == 0)
+		return;
 }
 
 void Menu::Bar::output_pos(int x)
@@ -90,12 +153,14 @@ void Menu::Bar::output_pos(int x)
 			object_meal[i].output();
 		}
 	}
+	if (x == 0)
+		return;
 
 }
 
-void Menu::Bar::delete_pos(int index, int choise)
+void Menu::Bar::delete_pos(int index, int x)
 {
-	if (choise == 1)
+	if (x == 1)
 	{
 		for (int i = 0; i < object_alco.size(); i++)
 		{
@@ -109,7 +174,7 @@ void Menu::Bar::delete_pos(int index, int choise)
 			return;
 		}
 	}
-	else if (choise == 2)
+	else if (x == 2)
 	{
 		for (int i = 0; i < object_meal.size(); i++)
 		{
@@ -122,6 +187,8 @@ void Menu::Bar::delete_pos(int index, int choise)
 			return;
 		}
 	}
+	else if (x == 0)
+		return;
 }
 
 void Menu::Bar::sort_up(vector<Alcohol>&, vector<Meal>&, int choise)
@@ -160,6 +227,7 @@ void Menu::Bar::sort_up(vector<Alcohol>&, vector<Meal>&, int choise)
 		}
 
 	}
+
 }
 
 void Menu::Bar::sort_down(vector<Alcohol>&, vector<Meal>&, int choise)
@@ -213,6 +281,8 @@ void Menu::Bar::sort_menu(int choise, int choisesort)
 
 		sort_down(object_alco, object_meal, choise);
 	}
+	else if (choisesort == 0)
+		return;
 }
 
 void Menu::Bar::change_info(int choise, int index)
@@ -244,4 +314,11 @@ void Menu::Bar::change_info(int choise, int index)
 				cout << "Object with number dosen't found! Please re-enter" << endl;
 		}
 	}
+	else if (choise == 0)
+		return;
+}
+
+void Menu::Bar::writeInFile()
+{
+	
 }

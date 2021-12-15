@@ -38,11 +38,11 @@ public:
 template<class T>
 inline File<T>::File()
 {
-	cout << "If you did not give a file name, a new file named \"new_file.txt\" will be created, \nif such a file is present it will be completely cleared. Are you sure?" << endl;
+	/*cout << "If you did not give a file name, a new file named \"new_file.txt\" will be created, \nif such a file is present it will be completely cleared. Are you sure?" << endl;
 	string choose;
 	getline(cin, choose,'\n');
 	if (choose != "1" && choose != "Y")
-		exit(-1);
+		exit(-1);*/
 	system("CLS");
 	file.open("new_file.txt", fstream::out | fstream::trunc);
 	if (!file.is_open())

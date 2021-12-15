@@ -3,6 +3,7 @@
 #include "meal.h"
 #include "visitor.h"
 #include <vector>
+#include "file.h"
 using namespace std;
 
 
@@ -17,11 +18,14 @@ namespace Menu
 		vector <Visitor>object_vis;
 		
 	public:
-		
+		Bar();
 		void add_vis();
 		void output_vis();
 		void delete_vis(int);
-		void sort_vis(vector<Visitor>&);
+		void sort_vis_up(vector<Visitor>&);
+		void sort_vis_down(vector<Visitor>&);
+		void sort_vis(int);
+		void change_vis(int);
 		void add_pos(int);
 		void output_pos(int);
 		void delete_pos(int, int);
@@ -29,6 +33,7 @@ namespace Menu
 		void sort_down(vector<Alcohol>&, vector<Meal>&, int);
 		void sort_menu(int, int);
 		void change_info(int, int);
+		void writeInFile();
 
 	};
 }
