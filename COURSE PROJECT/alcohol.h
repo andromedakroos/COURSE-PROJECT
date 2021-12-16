@@ -6,22 +6,22 @@
 using namespace std;
 
 
-namespace Menu
-{
+
+
 	class Alcohol : public Menu
 	{
-		
-		friend ostream& operator << (ostream& out, const Alcohol& pos);
+		friend ostream& operator << (ostream& out, Alcohol& pos);
 		friend istream& operator >> (istream& in, Alcohol& pos);
+		friend ifstream& operator >> (ifstream& file, Alcohol& pos);
 	private:
 		int strength;
 	public:
-		string lengthCheck();
+		/*void inputalco();*/
 		void setStrength(int);
 		int getStrength();
 		void input() override;
 		void output() override;
 
 	};
-}
+
 

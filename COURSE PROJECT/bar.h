@@ -6,10 +6,6 @@
 
 using namespace std;
 
-
-namespace Menu
-{
-
 	class Bar
 	{
 	private:
@@ -33,7 +29,6 @@ namespace Menu
 		void sort_down(vector<Alcohol>&, vector<Meal>&, int);
 		void sort_menu(int, int);
 		void change_info(int, int);
-		/*void writeInFile();*/
-
+		void writeInFile();
+		void readFromFile();
 	};
-}

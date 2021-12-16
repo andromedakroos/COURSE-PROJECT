@@ -1,13 +1,13 @@
 #include "menu.h"
 
-Menu::Menu::Menu()
+Menu::Menu()
 {
 	this->price = 0;
 	this->capacity = 0;
 	this->id = 0;
 }
 
-Menu::Menu::Menu(string name, string type, int price, int capacity)
+Menu::Menu(string name, string type, int price, int capacity)
 {
 	this->name = name;
 	this->type = type;
@@ -15,49 +15,49 @@ Menu::Menu::Menu(string name, string type, int price, int capacity)
 	this->capacity = capacity;
 }
 
-void Menu::Menu::setName(string name)
+void Menu::setName(string name)
 {
 	this->name = name;
 }
-void Menu::Menu::setType(string type)
+void Menu::setType(string type)
 {
 	this->type = type;
 }
-void Menu::Menu::setPrice(int price)
+void Menu::setPrice(int price)
 {
 	this->price = price;
 }
-void Menu::Menu::setCapacity(int capacity)
+void Menu::setCapacity(int capacity)
 {
 	this->capacity = capacity;
 }
 
-string Menu::Menu::getName()
+string Menu::getName()
 {
 	return name;
 }
 
-string Menu::Menu::getType()
+string Menu::getType()
 {
 	return type;
 }
 
-int Menu::Menu::getPrice()
+int Menu::getPrice()
 {
 	return price;
 }
 
-int Menu::Menu::getCapacity()
+int Menu::getCapacity()
 {
 	return capacity;
 }
 
-int Menu::Menu::getId()
+int Menu::getId()
 {
 	return id;
 }
 
-void Menu::Menu::setId(int id)
+void Menu::setId(int id)
 {
 	this->id = id;
 }

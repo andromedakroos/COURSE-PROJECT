@@ -1,7 +1,8 @@
 #include "alcohol.h"
+#include <fstream>
 
-//using namespace Menu;
-string Menu::Alcohol::lengthCheck()
+
+string lengthCheck()
 {
 	string name;
 	getline(cin, name, '\n');
@@ -22,12 +23,12 @@ string Menu::Alcohol::lengthCheck()
 		return name;
 }
 
-void Menu::Alcohol::setStrength(int strength)
+void Alcohol::setStrength(int strength)
 {
 	this->strength = strength;
 }
 
-int Menu::Alcohol::getStrength()
+int Alcohol::getStrength()
 {
 	return strength;
 }
@@ -55,13 +56,13 @@ int checking()
 	}
 }
 
-void Menu::Alcohol::input()
+void Alcohol::input()
 {
 
 	string tmp;
 	int a;
 	cout << "Enter name: " << endl;
-	getline(cin, tmp, '\n');
+	/*getline(cin, tmp, '\n');*/
 	tmp = lengthCheck();
 	setName(tmp);
 	cout << "Enter type of drink(beer, vodka): " << endl;
@@ -79,7 +80,7 @@ void Menu::Alcohol::input()
 	cin.ignore();
 
 }
-void Menu::Alcohol::output()
+void Alcohol::output()
 {
 	/*cout << "Name of meal: " <<
 		getName() << "\tType of meal: " <<
@@ -95,21 +96,18 @@ void Menu::Alcohol::output()
 		<< setw(7) << getId()
 		<< endl;
 };
-
-ostream& operator<<(ostream& out,  Menu::Alcohol& pos)
+ostream& operator<<(ostream& out, Alcohol& pos)
 {
-	
-	out << "Name:" << pos.getName() << endl;
-	out << "Type:" << pos.getType() << endl;
-	out << "Strength:" << pos.getStrength() << "\tdegrees" << endl;
-	out << "Price:" << pos.getPrice() << "\trubles" << endl;
-	out << "Capacity:" << pos.getCapacity() << "\tml" << endl;
-	out << "ID:" << pos.getId() << endl;
-	cout << "\n";
+	out <<  pos.getName() << endl;
+	out <<  pos.getType() << endl;
+	out <<  pos.getStrength()<< endl;
+	out << pos.getPrice() << endl;
+	out << pos.getCapacity() << endl;
+	out << pos.getId() << endl;
 	return out;
 }
 
-istream& operator>>(istream& in, Menu::Alcohol& pos)
+istream& operator>>(istream& in, Alcohol& pos)
 {
 	string name, type;
 	int strength, price, capacity;
@@ -130,3 +128,27 @@ istream& operator>>(istream& in, Menu::Alcohol& pos)
 	pos.setCapacity(capacity);
 	return in;
 }
+
+ifstream& operator>>(ifstream& file, Alcohol& pos)
+{
+	string name, type;
+	int strength, price, capacity,id;
+	getline(file, name);
+	file.ignore();
+	file.clear();
+	getline(file, type);
+	file.ignore();
+	file.clear();
+	file >> strength;
+	file.ignore();
+	file.clear();
+	file >> capacity;
+	file.ignore();
+	file.clear();
+	file >> price;
+	file.ignore();
+	file.clear();
+	file >> id;
+	return file;
+}
+

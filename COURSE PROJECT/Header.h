@@ -9,8 +9,8 @@
 
 using namespace std;
 
-void perfomance(Menu::Bar&);
+void perfomance(Bar&);
 int chooseEnter();
 void adminCheck(Admin);
-int chooseFile();
+//int chooseFile();
 int mainCheck();

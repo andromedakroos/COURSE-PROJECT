@@ -1,29 +1,18 @@
 #include "bar.h"
 #include "file.h"
 
-Menu::Bar::Bar()
+Bar::Bar()
 {
-	/*File<Alcohol> fAlco("drinks.txt");
-	File<Meal> fMeal("meals.txt");
-	File<Visitor> fVisitor("visitors.txt");
-	Alcohol temp;
-	while (1)
-	{
 
-		fAlco >> temp;
-		if (fAlco.eof())
-			break;
-		object_alco.push_back(temp);
-	}*/
 }
 
-void Menu::Bar::add_vis()
+void Bar::add_vis()
 {
 	object_vis.push_back(Visitor());
 	object_vis[object_vis.size() - 1].input();
 	object_vis[object_vis.size() - 1].setId(object_vis.size());
 }
-void Menu::Bar::output_vis()
+void Bar::output_vis()
 {
 	for (int i = 0; i < object_vis.size(); i++)
 	{
@@ -31,7 +20,7 @@ void Menu::Bar::output_vis()
 	}
 
 }
-void Menu::Bar::delete_vis(int index)
+void Bar::delete_vis(int index)
 {
 	for (int i = 0; i < object_meal.size(); i++)
 	{
@@ -44,7 +33,7 @@ void Menu::Bar::delete_vis(int index)
 		return;
 	}
 }
-void Menu::Bar::sort_vis_up(vector<Visitor>&)
+void Bar::sort_vis_up(vector<Visitor>&)
 {
 	Visitor temp_vis;
 	for (int i = 0; i < object_vis.size() - 1; i++)
@@ -61,7 +50,7 @@ void Menu::Bar::sort_vis_up(vector<Visitor>&)
 	}
 
 }
-void Menu::Bar::sort_vis_down(vector<Visitor>&)
+void Bar::sort_vis_down(vector<Visitor>&)
 {
 	Visitor temp_vis;
 	for (int i = 0; i < object_vis.size() - 1; i++)
@@ -77,7 +66,7 @@ void Menu::Bar::sort_vis_down(vector<Visitor>&)
 		}
 	}
 }
-void Menu::Bar::sort_vis(int choisesort)
+void Bar::sort_vis(int choisesort)
 {
 	if (choisesort == 1)
 	{
@@ -92,7 +81,7 @@ void Menu::Bar::sort_vis(int choisesort)
 	else if (choisesort == 0)
 		return;
 }
-void Menu::Bar::change_vis(int index)
+void Bar::change_vis(int index)
 {
 
 	for (int i = 0; i < object_vis.size(); i++)
@@ -106,7 +95,7 @@ void Menu::Bar::change_vis(int index)
 			cout << "Object with number dosen't found! Please re-enter" << endl;
 	}
 }
-void Menu::Bar::add_pos(int x)
+void Bar::add_pos(int x)
 {
 	if (x == 1)
 	{
@@ -124,7 +113,7 @@ void Menu::Bar::add_pos(int x)
 		return;
 }
 
-void Menu::Bar::output_pos(int x)
+void Bar::output_pos(int x)
 {
 	system("CLS");
 	if (x == 1){
@@ -142,6 +131,11 @@ void Menu::Bar::output_pos(int x)
 	}
 	if (x == 2)
 	{
+		cout << "Name of meal" << setw(15) << "Type of meal"
+			<< setw(10) << "Weight"
+			<< setw(7) << "Price"
+			<< setw(5) << "ID"
+			<< endl;
 		for (int i = 0; i < object_meal.size(); i++)
 		{
 			object_meal[i].output();
@@ -149,12 +143,23 @@ void Menu::Bar::output_pos(int x)
 	}
 	if (x == 3)
 	{
-		cout << "Drinks:" << endl;
+		cout << "Name of drink" << setw(15) << "Type of drink"
+			<< setw(10) << "Strength"
+			<< setw(10) << "Capacity"
+			<< setw(7) << "Price"
+			<< setw(5) << "ID"
+			<< endl;
 		for (int i = 0; i < object_alco.size(); i++)
 		{
 			object_alco[i].output();
 		}
-		cout << "Meals:" << endl;
+		cout << "\n";
+		cout << "Name of meal" << setw(15) << "Type of meal"
+			/*<< setw(10) << "Compound"*/
+			<< setw(10) << "Weight"
+			<< setw(7) << "Price"
+			<< setw(5) << "ID"
+			<< endl;
 		for (int i = 0; i < object_meal.size(); i++)
 		{
 			object_meal[i].output();
@@ -165,7 +170,7 @@ void Menu::Bar::output_pos(int x)
 
 }
 
-void Menu::Bar::delete_pos(int index, int x)
+void Bar::delete_pos(int index, int x)
 {
 	if (x == 1)
 	{
@@ -198,7 +203,7 @@ void Menu::Bar::delete_pos(int index, int x)
 		return;
 }
 
-void Menu::Bar::sort_up(vector<Alcohol>&, vector<Meal>&, int choise)
+void Bar::sort_up(vector<Alcohol>&, vector<Meal>&, int choise)
 {
 	Meal temp_meal;
 	Alcohol temp_alco;
@@ -237,7 +242,7 @@ void Menu::Bar::sort_up(vector<Alcohol>&, vector<Meal>&, int choise)
 
 }
 
-void Menu::Bar::sort_down(vector<Alcohol>&, vector<Meal>&, int choise)
+void Bar::sort_down(vector<Alcohol>&, vector<Meal>&, int choise)
 {
 	Meal temp_meal;
 	Alcohol temp_alco;
@@ -275,7 +280,7 @@ void Menu::Bar::sort_down(vector<Alcohol>&, vector<Meal>&, int choise)
 	}
 }
 
-void Menu::Bar::sort_menu(int choise, int choisesort)
+void Bar::sort_menu(int choise, int choisesort)
 {
 
 	if (choisesort == 1)
@@ -292,7 +297,7 @@ void Menu::Bar::sort_menu(int choise, int choisesort)
 		return;
 }
 
-void Menu::Bar::change_info(int choise, int index)
+void Bar::change_info(int choise, int index)
 {
 	system("cls");
 	if (choise == 1)
@@ -325,7 +330,64 @@ void Menu::Bar::change_info(int choise, int index)
 		return;
 }
 
-//void Menu::Bar::writeInFile()
-//{
-//	
-//}
+void Bar::writeInFile()
+{
+	ofstream alcoFile;
+	Alcohol tmp;
+	alcoFile.open("pizdec.txt", ofstream::out);
+	for (Alcohol tmp : object_alco)
+	{
+		/*alcoFile << tmp.getName() << endl;
+		alcoFile << tmp.getType() << endl;
+		alcoFile << tmp.getStrength() << endl;
+		alcoFile << tmp.getPrice() << endl;
+		alcoFile << tmp.getCapacity() << endl;
+		alcoFile << tmp.getId() << endl;*/
+		alcoFile << tmp;
+	}
+	alcoFile.close();
+}
+
+void Bar::readFromFile()
+{
+	ifstream alcoFile;
+	//fstream visitorfile;
+	//fstream mealfile;
+	Alcohol alcoTmp;
+	/*Meal mealTmp;
+	Visitor visitorTmp;*/
+
+	string name;
+	string type;
+	int strength;
+	int price;
+	int capacity;
+	int id;
+
+	alcoFile.open("pizdec.txt", ifstream::in);
+	if (alcoFile.is_open())
+	{
+		cout << "Vse ok" << endl;
+	}
+	/*while (alcoFile >> name >> type >> strength >> price >> capacity >> id)
+	{
+		if (alcoFile.eof())
+			break;
+		alcoTmp.setName(name);
+		alcoTmp.setType(type);
+		alcoTmp.setStrength(strength);
+		alcoTmp.setPrice(price);
+		alcoTmp.setCapacity(capacity);
+		alcoTmp.setId(id);
+		object_alco.push_back(alcoTmp);
+	}*/
+	while (alcoFile >> alcoTmp)
+	{
+		if (alcoFile.eof())
+			break;
+		object_alco.push_back(alcoTmp);
+	}
+	alcoFile.close();
+}
+
+

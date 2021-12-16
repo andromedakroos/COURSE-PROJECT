@@ -3,8 +3,8 @@
 #include <string>
 using namespace std;
 
-namespace Menu
-{
+
+
 	class Menu
 	{
 	private:
@@ -29,4 +29,4 @@ namespace Menu
 		int getId();
 		void setId(int);
 	};
-}
+

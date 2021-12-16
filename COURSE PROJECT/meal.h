@@ -5,19 +5,20 @@
 using namespace std;
 
 
-namespace Menu
-{
+
+
 
 	class Meal : public Menu
 	{
+		friend ostream& operator << (ostream& out, Meal& pos);
+		friend istream& operator >> (istream& in, Meal& pos);
 	private:
-		string taste;
+		/*string taste;*/
 	public:
-		void setTaste(string);
-		string getTaste();
-		int checking(int x);
+		/*void setTaste(string);
+		string getTaste();*/
 		void input() override;
 		void output() override;
 	};
-}
+
 

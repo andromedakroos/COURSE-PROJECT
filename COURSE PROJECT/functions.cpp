@@ -22,12 +22,13 @@ int mainCheck()
 		return x;
 	}
 }
-void perfomance(Menu::Bar &bar)
+void perfomance(Bar &bar)
 {
 	Admin adm;
 	int x=1,id;
 	/*chooseFile();*/
 	/*x=chooseEnter();*/
+	bar.readFromFile();
 	switch (x)
 	{
 	case 1:
@@ -65,8 +66,8 @@ void perfomance(Menu::Bar &bar)
 				break;
 			case 3:
 				system("CLS");
-				cout << "Show alco - 1\n" <<
-					"Show meal - 2\n" <<
+				cout << "Del alco - 1\n" <<
+					"Del meal - 2\n" <<
 					"Go back - 0" << endl;
 				x = mainCheck();
 				cout << "Enter ID of position which you want to delete" << endl;
@@ -100,17 +101,22 @@ void perfomance(Menu::Bar &bar)
 				x = mainCheck();
 				cout << "Enter ID of position which you want to delete" << endl;
 				bar.delete_vis(x);
+				break;
 			case 8:
 				x = mainCheck();
 				cout << "\nSort acending - 1" << "\nSort decending - 2" << endl;
 				bar.sort_vis(x);
+				break;
 				
 			case 9:
-				cout << "Enter ID of position which you want to change: " << endl;
+				cout << "Enter ID of visitor which you want to change: " << endl;
 				x = mainCheck();
 				bar.change_vis(x);
-
-			}
+				break;
+			case 10:
+				bar.writeInFile();
+				return;
+			}	
 		} while (x != 10);
 			
 	case 2:
@@ -133,7 +139,6 @@ void perfomance(Menu::Bar &bar)
 			case 2:
 				bar.add_vis();
 				break;
-
 			}
 		} while (x != 3);
 		}
@@ -171,19 +176,6 @@ void adminCheck(Admin admin)
 		success = false;
 	}
 }
-
-//int chooseFile()
-//{	
-//	int x;
-//	cout << "If you want to open created file - 1" << endl;
-//	cout << "If you want to create new file - 2" << endl;
-//	x = mainCheck();
-//	if (x == 1)
-//	{
-//
-//	}
-//	return x;
-//}
 
 
 
