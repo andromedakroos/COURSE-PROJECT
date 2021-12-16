@@ -1,5 +1,5 @@
 #include "bar.h"
-#include "file.h"
+
 
 Bar::Bar()
 {
@@ -337,12 +337,6 @@ void Bar::writeInFile()
 	alcoFile.open("pizdec.txt", ofstream::out);
 	for (Alcohol tmp : object_alco)
 	{
-		/*alcoFile << tmp.getName() << endl;
-		alcoFile << tmp.getType() << endl;
-		alcoFile << tmp.getStrength() << endl;
-		alcoFile << tmp.getPrice() << endl;
-		alcoFile << tmp.getCapacity() << endl;
-		alcoFile << tmp.getId() << endl;*/
 		alcoFile << tmp;
 	}
 	alcoFile.close();
@@ -357,12 +351,12 @@ void Bar::readFromFile()
 	/*Meal mealTmp;
 	Visitor visitorTmp;*/
 
-	string name;
-	string type;
-	int strength;
-	int price;
-	int capacity;
-	int id;
+	//string name;
+	//string type;
+	//int strength;
+	//int price;
+	//int capacity;
+	//int id;
 
 	alcoFile.open("pizdec.txt", ifstream::in);
 	if (alcoFile.is_open())

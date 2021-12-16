@@ -2,6 +2,7 @@
 #include "alcohol.h"
 #include "meal.h"
 #include "visitor.h"
+#include <fstream>
 #include <vector>
 
 using namespace std;

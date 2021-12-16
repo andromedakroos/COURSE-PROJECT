@@ -153,12 +153,14 @@
     <ClInclude Include="admin.h" />
     <ClInclude Include="alcohol.h" />
     <ClInclude Include="bar.h" />
-    <ClInclude Include="file.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="meal.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="person.h" />
     <ClInclude Include="visitor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="кла.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -68,8 +68,8 @@
     <ClInclude Include="admin.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="file.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="кла.cd" />
   </ItemGroup>
 </Project>
