@@ -1,8 +1,9 @@
 #include "bar.h"
+#include "file.h"
 
 Menu::Bar::Bar()
 {
-	File<Alcohol> fAlco("drinks.txt");
+	/*File<Alcohol> fAlco("drinks.txt");
 	File<Meal> fMeal("meals.txt");
 	File<Visitor> fVisitor("visitors.txt");
 	Alcohol temp;
@@ -13,7 +14,7 @@ Menu::Bar::Bar()
 		if (fAlco.eof())
 			break;
 		object_alco.push_back(temp);
-	}
+	}*/
 }
 
 void Menu::Bar::add_vis()
@@ -126,11 +127,17 @@ void Menu::Bar::add_pos(int x)
 void Menu::Bar::output_pos(int x)
 {
 	system("CLS");
-	if (x == 1)
-	{
+	if (x == 1){
+		cout << "Name of drink" << setw(15)<< "Type of drink"
+		<< setw(10) << "Strength"
+		<< setw(10) << "Capacity"
+		<< setw(7) << "Price"
+		<< setw(5) << "ID"
+		<< endl;
 		for (int i = 0; i < object_alco.size(); i++)
 		{
 			object_alco[i].output();
+			
 		}
 	}
 	if (x == 2)
@@ -318,7 +325,7 @@ void Menu::Bar::change_info(int choise, int index)
 		return;
 }
 
-void Menu::Bar::writeInFile()
-{
-	
-}
+//void Menu::Bar::writeInFile()
+//{
+//	
+//}

@@ -19,7 +19,7 @@ void Menu::Menu::setName(string name)
 {
 	this->name = name;
 }
-void Menu::Menu::setType(string name)
+void Menu::Menu::setType(string type)
 {
 	this->type = type;
 }

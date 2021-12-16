@@ -3,7 +3,7 @@
 #include "meal.h"
 #include "visitor.h"
 #include <vector>
-#include "file.h"
+
 using namespace std;
 
 
@@ -33,7 +33,7 @@ namespace Menu
 		void sort_down(vector<Alcohol>&, vector<Meal>&, int);
 		void sort_menu(int, int);
 		void change_info(int, int);
-		void writeInFile();
+		/*void writeInFile();*/
 
 	};
 }

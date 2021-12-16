@@ -9,7 +9,7 @@ int mainCheck()
 		while (success)
 		{
 			cin >> x;
-			if (cin.peek() != '\n' || x <= 0)
+			if (cin.peek() != '\n' || x < 0)
 			{
 				cin.clear();
 				cin.ignore(3333333, '\n');
@@ -25,9 +25,9 @@ int mainCheck()
 void perfomance(Menu::Bar &bar)
 {
 	Admin adm;
-	int x,id;
+	int x=1,id;
 	/*chooseFile();*/
-	x=chooseEnter();
+	/*x=chooseEnter();*/
 	switch (x)
 	{
 	case 1:
@@ -41,7 +41,7 @@ void perfomance(Menu::Bar &bar)
 				"Delete info about reservated tables - 7\n" <<
 				"Sort info about reservated tables - 8\n" <<
 				"Change info about reservated tables - 9\n" <<
-				"Exit - 10\n" << endl;
+				"Exit - 10" << endl;
 			x = mainCheck();
 			switch (x) {
 
@@ -144,11 +144,12 @@ int chooseEnter()
 	Admin adm;
 	int x;
 	cout << "1 - enter like a Administrator" << "\n" <<
-		"2-enter like a visitor\n" <<
+		"2 - enter like a visitor\n" <<
 		"Your answer : ";
 	x = mainCheck();
 	if (x == 1)
 	{
+		system("CLS");
 		adm.input();
 		adminCheck(adm);
 	}
@@ -171,18 +172,18 @@ void adminCheck(Admin admin)
 	}
 }
 
-int chooseFile()
-{	
-	int x;
-	cout << "If you want to open created file - 1" << endl;
-	cout << "If you want to create new file - 2" << endl;
-	x = mainCheck();
-	if (x == 1)
-	{
-
-	}
-	return x;
-}
+//int chooseFile()
+//{	
+//	int x;
+//	cout << "If you want to open created file - 1" << endl;
+//	cout << "If you want to create new file - 2" << endl;
+//	x = mainCheck();
+//	if (x == 1)
+//	{
+//
+//	}
+//	return x;
+//}
 
 
 
