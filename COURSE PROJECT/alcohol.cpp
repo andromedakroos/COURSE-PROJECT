@@ -62,7 +62,6 @@ void Alcohol::input()
 	string tmp;
 	int a;
 	cout << "Enter name: " << endl;
-	/*getline(cin, tmp, '\n');*/
 	tmp = lengthCheck();
 	setName(tmp);
 	cout << "Enter type of drink(beer, vodka): " << endl;
@@ -133,22 +132,17 @@ ifstream& operator>>(ifstream& file, Alcohol& pos)
 {
 	string name, type;
 	int strength, price, capacity,id;
-	getline(file, name);
-	file.ignore();
-	file.clear();
-	getline(file, type);
-	file.ignore();
-	file.clear();
-	file >> strength;
-	file.ignore();
-	file.clear();
-	file >> capacity;
-	file.ignore();
-	file.clear();
-	file >> price;
-	file.ignore();
-	file.clear();
-	file >> id;
+	
+	if (file.is_open())
+	{
+		file >> name >> type >> strength >> price >> capacity >> id;
+		pos.setName(name);
+		pos.setType(type);
+		pos.setStrength(strength);
+		pos.setPrice(price);
+		pos.setCapacity(capacity);
+		pos.setId(id);
+	}
 	return file;
 }
 

@@ -6,22 +6,20 @@
 using namespace std;
 
 
+class Alcohol : public Menu
+{
+	friend ostream& operator << (ostream& out, Alcohol& pos);
+	friend istream& operator >> (istream& in, Alcohol& pos);
+	friend ifstream& operator >> (ifstream& file, Alcohol& pos);
+private:
+	int strength;
+public:
+	
+	void setStrength(int);
+	int getStrength();
+	void input() override;
+	void output() override;
 
-
-	class Alcohol : public Menu
-	{
-		friend ostream& operator << (ostream& out, Alcohol& pos);
-		friend istream& operator >> (istream& in, Alcohol& pos);
-		friend ifstream& operator >> (ifstream& file, Alcohol& pos);
-	private:
-		int strength;
-	public:
-		/*void inputalco();*/
-		void setStrength(int);
-		int getStrength();
-		void input() override;
-		void output() override;
-
-	};
+};
 
 

@@ -15,16 +15,6 @@ void Visitor::setId(int id)
 	this->id = id;
 }
 
-//void Visitor::setName(string name)
-//{
-//	this->name = name;
-//}
-
-//void Visitor::setTime(string time)
-//{
-//	this->time = time;
-//}
-
 void Visitor::setTable(int table)
 {
 	this->table = table;
@@ -55,27 +45,19 @@ int Visitor::getMinute()
 	return minute;
 }
 
-//string Visitor::getTime()
-//{
-//	return time;
-//}
-
-//string Visitor::getName()
-//{
-//	return name;
-//}
-
 int Visitor::getId()
 {
 	return id;
 }
 
-int checking(int x)
+int checking()
 {
+	int x = 0;
 	{
 		bool success = true;
 		while (success)
 		{
+			cin >> x;
 			if (cin.peek() != '\n' || x < 0)
 			{
 				cin.clear();
@@ -87,18 +69,16 @@ int checking(int x)
 				success = false;
 		}
 		return x;
-
 	}
 }
 
 string phoneCheck(string phone)
 {
-	/*int l = phone.length();*/
 	bool success = true;
 	while (success)
 	{
 		int l = phone.length();
-		if (/*cin.peek() != '\n' ||*/ l < 10)
+		if ( l < 10)
 		{
 			cin.clear();
 			cin.ignore(3333333, '\n');
@@ -139,16 +119,13 @@ void Visitor::input()
 	getline(cin, tmp, '\n');
 	setName(tmp);
 	cout << "Enter hour of reservation time: " << endl;
-	cin >> a;
-	a = checking(a);
+	a = checking();
 	setHour(a);
 	cout << "Enter minutes of reservation time: " << endl;
-	cin >> a;
-	a = checking(a);
+	a = checking();
 	setMinute(a);
 	cout << "Enter number of table which you want to reservate: " << endl;
-	cin >> a;
-	a = checking(a);
+	a = checking();
 	a = tableCheck(a);
 	setTable(a);
 	cin.ignore();
@@ -158,15 +135,6 @@ void Visitor::input()
 	setPhone(tmp);
 	cin.ignore();
 }
-
-//void Visitor::output()
-//{
-//	cout << "Name of visitor: " <<
-//		getName() << "\nComing time: " <<
-//		getTime() << "\nNumber number of table which have been reserved:" <<
-//		getTable() << "\nPhone number: " <<
-//		getPhone() << "\n" << endl;
-//}
 
 void Visitor::output()
 {
@@ -178,4 +146,54 @@ void Visitor::output()
 		getPhone() << "\n" << endl;
 }
 
+ostream& operator<<(ostream& out, Visitor& pos)
+{
+	{
+		out << pos.getName() << endl;
+		out << pos.getHour() << endl;
+		out << pos.getMinute() << endl;
+		out << pos.getTable() << endl;
+		out << pos.getPhone() << endl;
+		out << pos.getId() << endl;
+		return out;
+	}
+}
 
+istream& operator>>(istream& in, Visitor& pos)
+{
+	int hour, minute, table, id;
+	string phone, name;
+	cout << "Enter name: ";
+	in >> name;
+	pos.setName(name);
+	cout << "Etner hour: ";
+	hour = checking();
+	pos.setHour(hour);
+	cout << "Enter minute: ";
+	minute = checking();
+	pos.setMinute(minute);
+	cout << "Enter capacity(ml): ";
+	table = checking();
+	pos.setTable(table);
+	cout << "Enter phone: ";
+	in >> phone;
+	pos.setName(name);
+	return in;
+}
+
+ifstream& operator>>(ifstream& file, Visitor& pos)
+{
+	int hour,minute,table,id;
+	string phone,name;
+	if (file.is_open())
+	{
+		file >> name >> hour >> minute >> table >>phone>> id;
+		pos.setName(name);
+		pos.setHour(hour);
+		pos.setMinute(minute);
+		pos.setTable(table);
+		pos.setPhone(phone);
+		pos.setId(id);
+	}
+	return file;
+}

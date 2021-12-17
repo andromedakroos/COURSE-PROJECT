@@ -1,15 +1,7 @@
 #include <iomanip>
 #include "meal.h"
 
-//void Menu::Meal::setTaste(string taste)
-//{
-//	this->taste = taste;
-//}
-//
-//string Menu::Meal::getTaste()
-//{
-//	return taste;
-//}
+
 int chec_king()
 {
 	int x = 0;
@@ -53,27 +45,6 @@ string length_Check()
 	return name;
 }
 
-//int Menu::Meal::checking(int x)
-//{
-//
-//	{
-//		bool success = true;
-//		while (success)
-//		{
-//			if (cin.peek() != '\n' || x <= 0)
-//			{
-//				cin.clear();
-//				cin.ignore(3333333, '\n');
-//				cout << "Incorrect number! Please re-enter!" << endl;
-//				cin >> x;
-//			}
-//			else
-//				success = false;
-//		}
-//		return x;
-//
-//	}
-//}
 
 void Meal::input()
 {
@@ -85,9 +56,6 @@ void Meal::input()
 	cout << "Enter type of meal(snack,hot dish,salad): " << endl;
 	tmp = length_Check();
 	setType(tmp);
-	/*cout << "Enter composition of the dish: " << endl;
-	tmp = length_Check();
-	setTaste(tmp);*/
 	cout << "Weight(gr): " << endl;;
 	a = chec_king();
 	setCapacity(a);
@@ -108,7 +76,6 @@ void Meal::output()
 		getPrice() << "\nID: " <<
 		getId() << "\n" << endl;*/
 	cout << getName() << setw(15) << getType()
-		/*<< setw(10) << getTaste()*/
 		<< setw(14) << getCapacity()
 		<< setw(7) << getPrice()
 		<< setw(5) << getId()
@@ -119,13 +86,11 @@ void Meal::output()
 ostream& operator<<(ostream& out, Meal& pos)
 {
 
-	out << "Name:" << pos.getName() << endl;
-	out << "Type:" << pos.getType() << endl;
-	/*out << "Compound:" << pos.getTaste() << " degrees" << endl;*/
-	out << "Price:" << pos.getPrice() << " rubles" << endl;
-	out << "Weight:" << pos.getCapacity() << " ml" << endl;
-	out << "ID:" << pos.getId() << endl;
-	cout << "\n";
+	out << pos.getName() << endl;
+	out << pos.getType() << endl;
+	out << pos.getPrice()  << endl;
+	out << pos.getCapacity()  << endl;
+	out << pos.getId() << endl;
 	return out;
 }
 
@@ -139,9 +104,6 @@ istream& operator>>(istream& in, Meal& pos)
 	cout << "Etner type(beer, wine): ";
 	in >> type;
 	pos.setType(type);
-	/*cout << "Enter strength(degrees): ";
-	in>>taste;
-	pos.setTaste(taste);*/
 	cout << "Enter price(rub): ";
 	price = chec_king();
 	pos.setPrice(price);
@@ -149,4 +111,21 @@ istream& operator>>(istream& in, Meal& pos)
 	capacity = chec_king();
 	pos.setCapacity(capacity);
 	return in;
+}
+
+ifstream& operator>>(ifstream& file, Meal& pos)
+{
+	string name, type;
+	int  price, capacity, id;
+
+	if (file.is_open())
+	{
+		file >> name >> type >> price >> capacity >> id;
+		pos.setName(name);
+		pos.setType(type);
+		pos.setPrice(price);
+		pos.setCapacity(capacity);
+		pos.setId(id);
+	}
+	return file;
 }

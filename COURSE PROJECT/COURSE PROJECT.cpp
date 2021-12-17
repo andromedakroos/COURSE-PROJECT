@@ -1,7 +1,5 @@
 ﻿#include "Header.h"
 
-
-
 int  main()
 {
 	int x, id;

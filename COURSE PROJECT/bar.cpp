@@ -1,6 +1,5 @@
 #include "bar.h"
 
-
 Bar::Bar()
 {
 
@@ -155,7 +154,6 @@ void Bar::output_pos(int x)
 		}
 		cout << "\n";
 		cout << "Name of meal" << setw(15) << "Type of meal"
-			/*<< setw(10) << "Compound"*/
 			<< setw(10) << "Weight"
 			<< setw(7) << "Price"
 			<< setw(5) << "ID"
@@ -333,11 +331,27 @@ void Bar::change_info(int choise, int index)
 void Bar::writeInFile()
 {
 	ofstream alcoFile;
-	Alcohol tmp;
-	alcoFile.open("pizdec.txt", ofstream::out);
-	for (Alcohol tmp : object_alco)
+	Alcohol alcoTmp;
+	ofstream mealFile;
+	Meal mealTmp;
+	ofstream visFile;
+	Visitor visTmp;
+	alcoFile.open("drinks.txt", ofstream::out);
+	for (Alcohol alcoTmp : object_alco)
 	{
-		alcoFile << tmp;
+		alcoFile << alcoTmp;
+	}
+	alcoFile.close();
+	mealFile.open("meals.txt", ofstream::out);
+	for (Meal mealTmp : object_meal)
+	{
+		alcoFile << mealTmp;
+	}
+	alcoFile.close();
+	alcoFile.open("visitors.txt", ofstream::out);
+	for (Visitor visTmp : object_vis)
+	{
+		alcoFile << visTmp;
 	}
 	alcoFile.close();
 }
@@ -345,36 +359,17 @@ void Bar::writeInFile()
 void Bar::readFromFile()
 {
 	ifstream alcoFile;
-	//fstream visitorfile;
-	//fstream mealfile;
+	fstream visFile;
+	fstream mealFile;
 	Alcohol alcoTmp;
-	/*Meal mealTmp;
-	Visitor visitorTmp;*/
+	Meal mealTmp;
+	Visitor visTmp;
 
-	//string name;
-	//string type;
-	//int strength;
-	//int price;
-	//int capacity;
-	//int id;
-
-	alcoFile.open("pizdec.txt", ifstream::in);
+	alcoFile.open("drinks.txt", ifstream::in);
 	if (alcoFile.is_open())
 	{
 		cout << "Vse ok" << endl;
 	}
-	/*while (alcoFile >> name >> type >> strength >> price >> capacity >> id)
-	{
-		if (alcoFile.eof())
-			break;
-		alcoTmp.setName(name);
-		alcoTmp.setType(type);
-		alcoTmp.setStrength(strength);
-		alcoTmp.setPrice(price);
-		alcoTmp.setCapacity(capacity);
-		alcoTmp.setId(id);
-		object_alco.push_back(alcoTmp);
-	}*/
 	while (alcoFile >> alcoTmp)
 	{
 		if (alcoFile.eof())
@@ -382,6 +377,32 @@ void Bar::readFromFile()
 		object_alco.push_back(alcoTmp);
 	}
 	alcoFile.close();
+
+	mealFile.open("meals.txt", ifstream::in);
+	if (mealFile.is_open())
+	{
+		cout << "Vse ok" << endl;
+	}
+	while (mealFile >> mealTmp)
+	{
+		if (mealFile.eof())
+			break;
+		object_meal.push_back(mealTmp);
+	}
+	mealFile.close();
+
+	visFile.open("visitors.txt", ifstream::in);
+	if (visFile.is_open())
+	{
+		cout << "Vse ok" << endl;
+	}
+	while (visFile >> visTmp)
+	{
+		if (visFile.eof())
+			break;
+		object_meal.push_back(mealTmp);
+	}
+	visFile.close();
 }
 
 
