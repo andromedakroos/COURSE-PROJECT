@@ -1,7 +1,6 @@
 #include "alcohol.h"
 #include <fstream>
 
-
 string lengthCheck()
 {
 	string name;

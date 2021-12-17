@@ -172,7 +172,7 @@ void Bar::delete_pos(int index, int x)
 {
 	if (x == 1)
 	{
-		for (int i = 0; i < object_alco.size(); i++)
+		for (int i =  0; i < object_alco.size(); i++)
 		{
 			if (object_alco[i].getId() == index)
 			{
