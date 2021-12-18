@@ -22,6 +22,17 @@ string lengthCheck()
 		return name;
 }
 
+void Alcohol::setCapacity(int capacity)
+{
+	this->capacity=capacity;
+
+}
+
+int Alcohol::getCapacity()
+{
+	return capacity;;
+}
+
 void Alcohol::setStrength(int strength)
 {
 	this->strength = strength;
@@ -31,7 +42,6 @@ int Alcohol::getStrength()
 {
 	return strength;
 }
-
 
 int checking()
 {
@@ -94,6 +104,7 @@ void Alcohol::output()
 		<< setw(7) << getId()
 		<< endl;
 };
+
 ostream& operator<<(ostream& out, Alcohol& pos)
 {
 	out <<  pos.getName() << endl;

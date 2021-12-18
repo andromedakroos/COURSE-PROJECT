@@ -12,8 +12,7 @@ using namespace std;
 	private:
 		vector <Alcohol> object_alco;
 		vector <Meal> object_meal;
-		vector <Visitor>object_vis;
-		
+		vector <Visitor> object_vis;
 	public:
 		Bar();
 		void add_vis();

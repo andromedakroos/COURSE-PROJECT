@@ -11,8 +11,13 @@ class Meal : public Menu
 	friend istream& operator >> (istream& in, Meal& pos);
 	friend ifstream& operator >> (ifstream& file, Meal& pos);
 private:
-	
+	int weight;
+	int calories;
 public:
+	void setWeight(int);
+	void setCalories(int);
+	int getWeight();
+	int getCalories();
 	void input() override;
 	void output() override;
 };

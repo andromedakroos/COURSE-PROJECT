@@ -13,8 +13,10 @@ class Alcohol : public Menu
 	friend ifstream& operator >> (ifstream& file, Alcohol& pos);
 private:
 	int strength;
+	int capacity;
 public:
-	
+	void setCapacity(int);
+	int getCapacity();
 	void setStrength(int);
 	int getStrength();
 	void input() override;

@@ -26,18 +26,17 @@ void perfomance(Bar &bar)
 {
 	Admin adm;
 	int x=1,id;
-	/*chooseFile();*/
-	/*x=chooseEnter();*/
+	x=chooseEnter();
 	bar.readFromFile();
 	switch (x)
 	{
 	case 1:
 		do {
-			cout << "Add - 1\n" <<
-				"Out - 2\n" <<
-				"Del - 3\n" <<
-				"Change - 4\n" <<
-				"Sort - 5\n" <<
+			cout << "Add posotion - 1\n" <<
+				"Output menu - 2\n" <<
+				"Del position - 3\n" <<
+				"Change position- 4\n" <<
+				"Sort menu - 5\n" <<
 				"Show info about reservated tables - 6\n" <<
 				"Delete info about reservated tables - 7\n" <<
 				"Sort info about reservated tables - 8\n" <<
@@ -122,9 +121,9 @@ void perfomance(Bar &bar)
 	case 2:
 		do {
 			cout << "Show menu - 1\n" <<
-				"Make a reservation- 2" <<
-				"Exit-3\n" <<
-				"Go back - 0" << endl;
+				"Make a reservation- 2\n" <<
+				"Exit-3\n"<< endl;
+			x = mainCheck();
 			switch (x)
 			{
 			case 1:
@@ -137,8 +136,11 @@ void perfomance(Bar &bar)
 				bar.output_pos(x);
 				break;
 			case 2:
+				cin.ignore();
 				bar.add_vis();
 				break;
+			case 3:
+				return;
 			}
 		} while (x != 3);
 		}
@@ -157,9 +159,9 @@ int chooseEnter()
 		system("CLS");
 		adm.input();
 		adminCheck(adm);
+		cout << "Hello," << adm.getName() << endl;
 	}
 	system("CLS");
-	cout << "Hello," << adm.getName() << endl;
 	return x;
 }
 void adminCheck(Admin admin)

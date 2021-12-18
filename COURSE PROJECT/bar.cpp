@@ -108,6 +108,12 @@ void Bar::add_pos(int x)
 		object_meal[object_meal.size() - 1].input();
 		object_meal[object_meal.size() - 1].setId(object_meal.size());
 	}
+	if(x==3)
+	{
+		object_vis.push_back(Visitor());
+		object_vis[object_vis.size() - 1].input();
+		object_vis[object_vis.size() - 1].setId(object_vis.size());
+	}
 	if (x == 0)
 		return;
 }
@@ -132,6 +138,7 @@ void Bar::output_pos(int x)
 	{
 		cout << "Name of meal" << setw(15) << "Type of meal"
 			<< setw(10) << "Weight"
+			<<setw(10)<<"Calories"
 			<< setw(7) << "Price"
 			<< setw(5) << "ID"
 			<< endl;
@@ -342,25 +349,27 @@ void Bar::writeInFile()
 		alcoFile << alcoTmp;
 	}
 	alcoFile.close();
+
 	mealFile.open("meals.txt", ofstream::out);
 	for (Meal mealTmp : object_meal)
 	{
-		alcoFile << mealTmp;
+		mealFile << mealTmp;
 	}
-	alcoFile.close();
-	alcoFile.open("visitors.txt", ofstream::out);
+	mealFile.close();
+
+	visFile.open("visitors.txt", ofstream::out);
 	for (Visitor visTmp : object_vis)
 	{
-		alcoFile << visTmp;
+		visFile << visTmp;
 	}
-	alcoFile.close();
+	visFile.close();
 }
 
 void Bar::readFromFile()
 {
 	ifstream alcoFile;
-	fstream visFile;
-	fstream mealFile;
+	ifstream visFile;
+	ifstream mealFile;
 	Alcohol alcoTmp;
 	Meal mealTmp;
 	Visitor visTmp;
@@ -368,7 +377,7 @@ void Bar::readFromFile()
 	alcoFile.open("drinks.txt", ifstream::in);
 	if (alcoFile.is_open())
 	{
-		cout << "Vse ok" << endl;
+		/*cout << "Vse ok" << endl;*/
 	}
 	while (alcoFile >> alcoTmp)
 	{
@@ -381,7 +390,7 @@ void Bar::readFromFile()
 	mealFile.open("meals.txt", ifstream::in);
 	if (mealFile.is_open())
 	{
-		cout << "Vse ok" << endl;
+		/*cout << "Vse ok" << endl;*/
 	}
 	while (mealFile >> mealTmp)
 	{
@@ -394,13 +403,13 @@ void Bar::readFromFile()
 	visFile.open("visitors.txt", ifstream::in);
 	if (visFile.is_open())
 	{
-		cout << "Vse ok" << endl;
+		/*cout << "Vse ok" << endl;*/
 	}
 	while (visFile >> visTmp)
 	{
 		if (visFile.eof())
 			break;
-		object_meal.push_back(mealTmp);
+		object_vis.push_back(visTmp);
 	}
 	visFile.close();
 }

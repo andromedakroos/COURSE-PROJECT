@@ -46,6 +46,26 @@ string length_Check()
 }
 
 
+void Meal::setWeight(int weight)
+{
+	this->weight = weight;
+}
+
+void Meal::setCalories(int calories)
+{
+	this->calories=calories;
+}
+
+int Meal::getWeight()
+{
+	return weight;
+}
+
+int Meal::getCalories()
+{
+	return calories;
+}
+
 void Meal::input()
 {
 	string tmp;
@@ -58,7 +78,10 @@ void Meal::input()
 	setType(tmp);
 	cout << "Weight(gr): " << endl;;
 	a = chec_king();
-	setCapacity(a);
+	setWeight(a);
+	cout << "Calories: " << endl;;
+	a = chec_king();
+	setCalories(a);
 	cout << "Price(rub): " << endl;
 	a = chec_king();
 	setPrice(a);
@@ -76,7 +99,7 @@ void Meal::output()
 		getPrice() << "\nID: " <<
 		getId() << "\n" << endl;*/
 	cout << getName() << setw(15) << getType()
-		<< setw(14) << getCapacity()
+		<< setw(14) << getWeight()
 		<< setw(7) << getPrice()
 		<< setw(5) << getId()
 		<< "\n"<<endl;
@@ -89,15 +112,16 @@ ostream& operator<<(ostream& out, Meal& pos)
 	out << pos.getName() << endl;
 	out << pos.getType() << endl;
 	out << pos.getPrice()  << endl;
-	out << pos.getCapacity()  << endl;
+	out << pos.getWeight()  << endl;
+	out << pos.getCalories() << endl;
 	out << pos.getId() << endl;
 	return out;
 }
 
 istream& operator>>(istream& in, Meal& pos)
 {
-	string name, type,taste;
-	int price, capacity;
+	string name, type;
+	int price, weight,calories;
 	cout << "Enter name: ";
 	in >> name;
 	pos.setName(name);
@@ -108,23 +132,27 @@ istream& operator>>(istream& in, Meal& pos)
 	price = chec_king();
 	pos.setPrice(price);
 	cout << "Enter capacity(ml): ";
-	capacity = chec_king();
-	pos.setCapacity(capacity);
+	weight = chec_king();
+	pos.setWeight(weight);
+	cout << "Enter calories";
+	calories = chec_king();
+	pos.setCalories(calories);
 	return in;
 }
 
 ifstream& operator>>(ifstream& file, Meal& pos)
 {
 	string name, type;
-	int  price, capacity, id;
+	int  price, weight, id,calories;
 
 	if (file.is_open())
 	{
-		file >> name >> type >> price >> capacity >> id;
+		file >> name >> type >> price >> weight >>calories>> id;
 		pos.setName(name);
 		pos.setType(type);
 		pos.setPrice(price);
-		pos.setCapacity(capacity);
+		pos.setWeight(weight);
+		pos.setCalories(calories);
 		pos.setId(id);
 	}
 	return file;

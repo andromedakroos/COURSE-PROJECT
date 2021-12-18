@@ -3,7 +3,6 @@
 Menu::Menu()
 {
 	this->price = 0;
-	this->capacity = 0;
 	this->id = 0;
 }
 
@@ -12,7 +11,6 @@ Menu::Menu(string name, string type, int price, int capacity)
 	this->name = name;
 	this->type = type;
 	this->price = price;
-	this->capacity = capacity;
 }
 
 void Menu::setName(string name)
@@ -26,10 +24,6 @@ void Menu::setType(string type)
 void Menu::setPrice(int price)
 {
 	this->price = price;
-}
-void Menu::setCapacity(int capacity)
-{
-	this->capacity = capacity;
 }
 
 string Menu::getName()
@@ -45,11 +39,6 @@ string Menu::getType()
 int Menu::getPrice()
 {
 	return price;
-}
-
-int Menu::getCapacity()
-{
-	return capacity;
 }
 
 int Menu::getId()

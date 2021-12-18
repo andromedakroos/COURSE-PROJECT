@@ -50,7 +50,7 @@ int Visitor::getId()
 	return id;
 }
 
-int checking()
+int _checking()
 {
 	int x = 0;
 	{
@@ -119,13 +119,13 @@ void Visitor::input()
 	getline(cin, tmp, '\n');
 	setName(tmp);
 	cout << "Enter hour of reservation time: " << endl;
-	a = checking();
+	a = _checking();
 	setHour(a);
 	cout << "Enter minutes of reservation time: " << endl;
-	a = checking();
+	a = _checking();
 	setMinute(a);
 	cout << "Enter number of table which you want to reservate: " << endl;
-	a = checking();
+	a = _checking();
 	a = tableCheck(a);
 	setTable(a);
 	cin.ignore();
@@ -167,13 +167,13 @@ istream& operator>>(istream& in, Visitor& pos)
 	in >> name;
 	pos.setName(name);
 	cout << "Etner hour: ";
-	hour = checking();
+	hour = _checking();
 	pos.setHour(hour);
 	cout << "Enter minute: ";
-	minute = checking();
+	minute = _checking();
 	pos.setMinute(minute);
 	cout << "Enter capacity(ml): ";
-	table = checking();
+	table = _checking();
 	pos.setTable(table);
 	cout << "Enter phone: ";
 	in >> phone;
