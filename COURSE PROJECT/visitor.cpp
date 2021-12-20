@@ -93,9 +93,10 @@ string phoneCheck(string phone)
 	return phone;
 }
 
-int tableCheck(int table, vector<int>& num )
+int tableCheck(int table, vector<int>& num)
 {
-	
+//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\”¡–¿“‹
+	num.clear();
 	bool success = true;
 	while (success)
 	{
