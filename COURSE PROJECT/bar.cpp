@@ -388,9 +388,9 @@ void Bar::readFromFile()
 	{
 		alcoFile.open("drinks.txt", ifstream::in);
 	}
-	catch (const exception& alcoFile)
+	catch (const exception& ex)
 	{
-		cout << alcoFile.what() << endl;
+		cout << ex.what() << endl;
 		cout << "Error. File cannot be opened" << endl;
 	}
 	while (alcoFile >> alcoTmp)
@@ -404,9 +404,9 @@ void Bar::readFromFile()
 	{
 		mealFile.open("meals.txt", ifstream::in);
 	}
-	catch (const exception& mealFile)
+	catch (const exception& ex)
 	{
-		cout << mealFile.what() << endl;
+		cout << ex.what() << endl;
 		cout << "Error. File cannot be opened" << endl;
 	}
 	while (mealFile >> mealTmp)
@@ -420,9 +420,9 @@ void Bar::readFromFile()
 	{
 		visFile.open("visitors.txt", ifstream::in);
 	}
-	catch (const exception& visFile)
+	catch (const exception& ex)
 	{
-		cout << visFile.what() << endl;
+		cout << ex.what() << endl;
 		cout << "Error. File cannot be opened" << endl;
 	}
 	while (visFile >> visTmp)
