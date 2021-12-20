@@ -5,7 +5,6 @@
 #include "person.h"
 using namespace std;
 
-
 class Visitor:public Person
 {
 	friend ostream& operator<<(ostream& out, Visitor& pos);

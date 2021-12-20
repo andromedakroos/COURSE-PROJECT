@@ -33,16 +33,16 @@ void perfomance(Bar &bar)
 	case 1:
 		cout << "Hello, administator!" << endl;
 		do {
-			cout << "Add posotion - 1\n" <<
-				"Output menu - 2\n" <<
-				"Del position - 3\n" <<
-				"Change position- 4\n" <<
-				"Sort menu - 5\n" <<
-				"Show info about reservated tables - 6\n" <<
-				"Delete info about reservated tables - 7\n" <<
-				"Sort info about reservated tables - 8\n" <<
-				"Change info about reservated tables - 9\n" <<
-				"Exit - 10" << endl;
+			cout << "\n1 - Add postion\n" <<
+				"2 - Output menu\n" <<
+				"3 - Del position \n" <<
+				"4 - Change position\n" <<
+				"5 - Sort menu\n" <<
+				"6 - Show info about reservated tables\n" <<
+				"7 - Delete info about reservated tables\n" <<
+				"8 - Sort info about reservated tables\n" <<
+				"9 - Change info about reservated tables\n" <<
+				"10 - Exit" << endl;
 			x = mainCheck();
 			switch (x) {
 
@@ -86,6 +86,7 @@ void perfomance(Bar &bar)
 				bar.change_info(x, id);
 				break;
 			case 5:
+				system("CLS");
 				cout << "If you want to sort alco - 1" << endl;
 				cout << "If you want to sort meal - 2" << endl;
 				cout << "Get back-0" << endl;
@@ -95,20 +96,24 @@ void perfomance(Bar &bar)
 				bar.sort_menu(id, x);
 				break;
 			case 6:
+				system("CLS");
 				bar.output_vis();
 				break;
 			case 7:
+				system("CLS");
 				x = mainCheck();
 				cout << "Enter ID of position which you want to delete" << endl;
 				bar.delete_vis(x);
 				break;
 			case 8:
+				system("CLS");
 				x = mainCheck();
 				cout << "\nSort acending - 1" << "\nSort decending - 2" << endl;
 				bar.sort_vis(x);
 				break;
 
 			case 9:
+				system("CLS");
 				cout << "Enter ID of visitor which you want to change: " << endl;
 				x = mainCheck();
 				bar.change_vis(x);
@@ -138,13 +143,15 @@ void perfomance(Bar &bar)
 				bar.output_pos(x);
 				break;
 			case 2:
+				system("CLS");
 				cin.ignore();
 				bar.add_vis();
 				break;
-			case 3:
+			case 4:
+				bar.writeInFile();
 				return;
 			}
-		} while (x != 4);
+		} while (x != 4 || x!=10);
 	  }
 	}
 

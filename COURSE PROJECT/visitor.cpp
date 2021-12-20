@@ -1,4 +1,6 @@
 #include "visitor.h"
+#include <vector>
+vector<int> num;
 
 void Visitor::setHour(int hour)
 {
@@ -91,12 +93,23 @@ string phoneCheck(string phone)
 	return phone;
 }
 
-int tableCheck(int table)
+int tableCheck(int table, vector<int>& num )
 {
+	
 	bool success = true;
 	while (success)
 	{
+		for (int i = 0; i < num.size(); i++)
+		{
+			if (table == num[i])
+			{
+				cin.clear();
+				cin.ignore(3333333, '\n');
+				cout << "This table has been reserved, choose another one" << endl;
+				cin >> table;
+			}
 
+		}
 		if (table > 8 || table < 0 )
 		{
 			cin.clear();
@@ -105,7 +118,9 @@ int tableCheck(int table)
 			cin >> table;
 		}
 		else
+			num.push_back(table);
 			success = false;
+
 	}
 	return table;
 	
@@ -126,7 +141,7 @@ void Visitor::input()
 	setMinute(a);
 	cout << "Enter number of table which you want to reservate: " << endl;
 	a = _checking();
-	a = tableCheck(a);
+	a = tableCheck(a, num);
 	setTable(a);
 	cin.ignore();
 	cout << "Enter your phone number: " << endl;

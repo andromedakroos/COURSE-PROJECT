@@ -1,5 +1,4 @@
 #include "bar.h"
-#include "StreamTable.h"
 
 Bar::Bar()
 {
@@ -123,19 +122,12 @@ void Bar::output_pos(int x)
 {
 	system("CLS");
 	if (x == 1){
-		/*cout << "Name of drink" << setw(15)<< "Type of drink"
-		<< setw(10) << "Strength"
-		<< setw(10) << "Capacity"
-		<< setw(7) << "Price"
-		<< setw(5) << "ID"
-		<< endl;*/
-		/*StreamTable st(cout);
-		st << "Name" << "Type" << "Strength" << "Capacity" << "Price" << "ID";
-		st.AddCol(5);
-		st.AddCol(15);
-		st.AddCol(10);
-		st.AddCol(10);
-		st.MakeBorderExt(true);*/
+		cout << "ID" << setw(20)<< "Name of drink"
+		<< setw(20) << "Type of drink"
+		<< setw(20) << "Strength"
+		<< setw(20) << "Capacity"
+		<< setw(20) << "Price"
+		<< endl;
 		for (int i = 0; i < object_alco.size(); i++)
 		{
 			object_alco[i].output();
@@ -144,11 +136,11 @@ void Bar::output_pos(int x)
 	}
 	if (x == 2)
 	{
-		cout << "Name of meal" << setw(15) << "Type of meal"
-			<< setw(10) << "Weight"
-			<<setw(10)<<"Calories"
-			<< setw(7) << "Price"
-			<< setw(5) << "ID"
+		cout << "ID" << setw(20) << "Name of meal"
+			<< setw(20) << "Type of meal"
+			<< setw(20) << "Weight"
+			<< setw(20) << "Calories"
+			<< setw(20) << "Price"
 			<< endl;
 		for (int i = 0; i < object_meal.size(); i++)
 		{
@@ -157,21 +149,22 @@ void Bar::output_pos(int x)
 	}
 	if (x == 3)
 	{
-		cout << "Name of drink" << setw(15) << "Type of drink"
-			<< setw(10) << "Strength"
-			<< setw(10) << "Capacity"
-			<< setw(7) << "Price"
-			<< setw(5) << "ID"
+		cout << "ID" << setw(20) << "Name of drink"
+			<< setw(20) << "Type of drink"
+			<< setw(20) << "Strength"
+			<< setw(20) << "Capacity"
+			<< setw(20) << "Price"
 			<< endl;
 		for (int i = 0; i < object_alco.size(); i++)
 		{
 			object_alco[i].output();
 		}
 		cout << "\n";
-		cout << "Name of meal" << setw(15) << "Type of meal"
-			<< setw(10) << "Weight"
-			<< setw(7) << "Price"
-			<< setw(5) << "ID"
+		cout << "ID" << setw(20) << "Name of meal"
+			<< setw(20) << "Type of meal"
+			<< setw(20) << "Weight"
+			<< setw(20) << "Calories"
+			<< setw(20) << "Price"
 			<< endl;
 		for (int i = 0; i < object_meal.size(); i++)
 		{

@@ -9,7 +9,7 @@ string lengthCheck()
 		while (success)
 		{
 			int l = name.length();
-			if (l > 10)
+			if (l > 12)
 			{
 				cin.clear();
 				cin.ignore(3333333, '\n');
@@ -89,19 +89,13 @@ void Alcohol::input()
 }
 void Alcohol::output()
 {
-	/*cout << "Name of meal: " <<
-		getName() << "\tType of meal: " <<
-		getType() << "\tComposition of meal:" <<
-		getStrength() << "\n Weight of meal(gr): " <<
-		getCapacity() << "\nPrice(rub): " <<
-		getPrice() << "\nID: " <<
-		getId() << "\n" << endl;*/
-	cout << getName() << setw(13) << getType()
-		<< setw(10) << getStrength()
-		<< setw(11) << getCapacity()
-		<< setw(7) << getPrice()
-		<< setw(7) << getId()
-		<< endl;
+	
+	cout << getId() << setw(20) << getName()<<right
+		<< setw(20) << getType()<< right
+		<< setw(20) << getStrength()<< right
+		<< setw(20) << getCapacity()<< right
+		<< setw(20) << getPrice()<< right
+		<<"\n"<< endl;
 };
 
 ostream& operator<<(ostream& out, Alcohol& pos)

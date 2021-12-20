@@ -90,19 +90,13 @@ void Meal::input()
 
 void Meal::output()
 {
-	/*cout << "Name of meal: " <<
-		getName() << "\nType of meal: " <<
-		getType() << "\nComposition of meal:" <<
-		getTaste() << "\n Weight of meal(gr): " <<
-		getCapacity() << "\nPrice(rub): " <<
-		getPrice() << "\nID: " <<
-		getId() << "\n" << endl;*/
-	cout << getName() << setw(15) << getType()
-		<< setw(14) << getWeight()
-		<< setw(7) << getPrice()
-		<< setw(5) << getId()
-		<< "\n"<<endl;
 
+	cout << getId() << setw(20) << getName()
+		<< setw(20) << getType()
+		<< setw(20) << getWeight()
+		<< setw(20) << getCalories()
+		<< setw(20) << getPrice()
+		<< "\n"<<endl;
 }
 
 ostream& operator<<(ostream& out, Meal& pos)
