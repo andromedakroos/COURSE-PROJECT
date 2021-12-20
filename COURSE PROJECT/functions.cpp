@@ -31,6 +31,7 @@ void perfomance(Bar &bar)
 	switch (x)
 	{
 	case 1:
+		cout << "Hello, administator!" << endl;
 		do {
 			cout << "Add posotion - 1\n" <<
 				"Output menu - 2\n" <<
@@ -106,7 +107,7 @@ void perfomance(Bar &bar)
 				cout << "\nSort acending - 1" << "\nSort decending - 2" << endl;
 				bar.sort_vis(x);
 				break;
-				
+
 			case 9:
 				cout << "Enter ID of visitor which you want to change: " << endl;
 				x = mainCheck();
@@ -115,14 +116,15 @@ void perfomance(Bar &bar)
 			case 10:
 				bar.writeInFile();
 				return;
-			}	
+			}
 		} while (x != 10);
-			
+
 	case 2:
+		cout << "Hello, visitor!" << endl;
 		do {
 			cout << "Show menu - 1\n" <<
 				"Make a reservation- 2\n" <<
-				"Exit-3\n"<< endl;
+				"Exit-4\n" << endl;
 			x = mainCheck();
 			switch (x)
 			{
@@ -142,8 +144,8 @@ void perfomance(Bar &bar)
 			case 3:
 				return;
 			}
-		} while (x != 3);
-		}
+		} while (x != 4);
+	  }
 	}
 
 int chooseEnter()
@@ -159,7 +161,6 @@ int chooseEnter()
 		system("CLS");
 		adm.input();
 		adminCheck(adm);
-		cout << "Hello," << adm.getName() << endl;
 	}
 	system("CLS");
 	return x;

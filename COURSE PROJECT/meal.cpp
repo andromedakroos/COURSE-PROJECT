@@ -90,7 +90,6 @@ void Meal::input()
 
 void Meal::output()
 {
-
 	/*cout << "Name of meal: " <<
 		getName() << "\nType of meal: " <<
 		getType() << "\nComposition of meal:" <<

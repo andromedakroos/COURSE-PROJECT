@@ -1,4 +1,5 @@
 #include "bar.h"
+#include "StreamTable.h"
 
 Bar::Bar()
 {
@@ -122,12 +123,19 @@ void Bar::output_pos(int x)
 {
 	system("CLS");
 	if (x == 1){
-		cout << "Name of drink" << setw(15)<< "Type of drink"
+		/*cout << "Name of drink" << setw(15)<< "Type of drink"
 		<< setw(10) << "Strength"
 		<< setw(10) << "Capacity"
 		<< setw(7) << "Price"
 		<< setw(5) << "ID"
-		<< endl;
+		<< endl;*/
+		/*StreamTable st(cout);
+		st << "Name" << "Type" << "Strength" << "Capacity" << "Price" << "ID";
+		st.AddCol(5);
+		st.AddCol(15);
+		st.AddCol(10);
+		st.AddCol(10);
+		st.MakeBorderExt(true);*/
 		for (int i = 0; i < object_alco.size(); i++)
 		{
 			object_alco[i].output();
@@ -343,6 +351,7 @@ void Bar::writeInFile()
 	Meal mealTmp;
 	ofstream visFile;
 	Visitor visTmp;
+	
 	alcoFile.open("drinks.txt", ofstream::out);
 	for (Alcohol alcoTmp : object_alco)
 	{
@@ -363,6 +372,7 @@ void Bar::writeInFile()
 		visFile << visTmp;
 	}
 	visFile.close();
+
 }
 
 void Bar::readFromFile()
@@ -374,10 +384,14 @@ void Bar::readFromFile()
 	Meal mealTmp;
 	Visitor visTmp;
 
-	alcoFile.open("drinks.txt", ifstream::in);
-	if (alcoFile.is_open())
+	try
 	{
-		/*cout << "Vse ok" << endl;*/
+		alcoFile.open("drinks.txt", ifstream::in);
+	}
+	catch (const exception& alcoFile)
+	{
+		cout << alcoFile.what() << endl;
+		cout << "Error. File cannot be opened" << endl;
 	}
 	while (alcoFile >> alcoTmp)
 	{
@@ -386,11 +400,14 @@ void Bar::readFromFile()
 		object_alco.push_back(alcoTmp);
 	}
 	alcoFile.close();
-
-	mealFile.open("meals.txt", ifstream::in);
-	if (mealFile.is_open())
+	try
 	{
-		/*cout << "Vse ok" << endl;*/
+		mealFile.open("meals.txt", ifstream::in);
+	}
+	catch (const exception& mealFile)
+	{
+		cout << mealFile.what() << endl;
+		cout << "Error. File cannot be opened" << endl;
 	}
 	while (mealFile >> mealTmp)
 	{
@@ -399,11 +416,14 @@ void Bar::readFromFile()
 		object_meal.push_back(mealTmp);
 	}
 	mealFile.close();
-
-	visFile.open("visitors.txt", ifstream::in);
-	if (visFile.is_open())
+	try
 	{
-		/*cout << "Vse ok" << endl;*/
+		visFile.open("visitors.txt", ifstream::in);
+	}
+	catch (const exception& visFile)
+	{
+		cout << visFile.what() << endl;
+		cout << "Error. File cannot be opened" << endl;
 	}
 	while (visFile >> visTmp)
 	{
@@ -412,6 +432,7 @@ void Bar::readFromFile()
 		object_vis.push_back(visTmp);
 	}
 	visFile.close();
+
 }
 
 

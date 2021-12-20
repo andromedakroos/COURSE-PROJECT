@@ -154,6 +154,7 @@
     <ClInclude Include="alcohol.h" />
     <ClInclude Include="bar.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="StreamTable.h" />
     <ClInclude Include="meal.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="person.h" />

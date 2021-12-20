@@ -25,7 +25,6 @@ string lengthCheck()
 void Alcohol::setCapacity(int capacity)
 {
 	this->capacity=capacity;
-
 }
 
 int Alcohol::getCapacity()
